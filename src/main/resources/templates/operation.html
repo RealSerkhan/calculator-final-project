@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap Link  -->    <!-- Bootstrap Link  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fontawesome.com/icons/github?style=brands" rel="stylesheet">
+    <!-- CSS link  -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/operation.css}">
+  <title>Calculator</title>
+</head>
+
+<body>
+
+<div th:if="${error}">
+    <div class="alert alert-danger">
+        <span th:text="${error}"></span>
+    </div>
+</div>
+
+
+<div th:if="${warning}">
+    <div class="alert alert-danger">
+        <span th:text="${warning}"></span>
+    </div>
+</div>
+<div class="container-fluid">
+    <a th:href="@{login}" type="button" class="logout btn btn-primary btn-lg">Log in</a>
+
+</div>
+
+
+    <form th:object="${operations}" method="post">
+        <div class="row">
+            <div class="col">
+                <input type="text" name="operation" id="operation" th:field="*{operation}" class="input form-control" placeholder="Ex: 7+2">
+            </div>
+            <div class="col">
+                <p class="result form-control"><span th:text="${operations.result}" ></span></p>
+            </div>
+        </div>
+        <button type="submit" class="calculate btn btn-primary">Calculate</button>
+    </form>
+
+
+</body>
+
+</html>

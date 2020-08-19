@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"
+	  xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+	<!-- Bootstrap Link  -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<!-- Icons -->
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fontawesome.com/icons/github?style=brands" rel="stylesheet">
+
+	<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/custom-select.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/main2.css}">
+	<!-- CSS link  -->
+</head>
+<body>
+<header class="main-header">
+
+	<div class="main-header-wrapper" >
+		<div class="main-header-profile-wrapper">
+			<div class="main-header-profile-credentials">
+				<span class="main-header-username" th:text="${name}"></span>
+				<div class="log-out-block">
+					<a class="btn btn-primary" th:href="@{/logout}">Log out</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="limiter">
+	<div class="container-table100">
+		<div class="wrap-table100">
+			<div class="table100">
+				<a class="btn btn-primary" th:href="@{operation_auth}">Go back</a>
+				<table>
+					<thead>
+					<thead>
+				<tr class="table100-head">
+					<th class="column1">Operation</th>
+					<th class="column1">Result</th>
+				</tr>
+					</thead>
+
+					<tbody th:each="list : ${user.getOperations()}">
+
+					<tr>
+						<td class="column1" th:text="${list.getOperation()}"></td>
+						<td class="column2" th:text="${list.getResult()}"></td>
+
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

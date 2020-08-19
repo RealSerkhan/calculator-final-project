@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap Link  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Css Link  -->
+    <!-- Bootstrap Link  -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fontawesome.com/icons/github?style=brands" rel="stylesheet">
+    <!-- CSS link  -->
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <title>Main page</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class=" left-side col-md-6">
+                <h1>Welcome</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis id voluptatum possimus quam sit
+                    architecto amet quo, inventore natus. Laborum aliquid molestias architecto numquam voluptatum
+                    reiciendis quas iure voluptate voluptatibus.</p>
+                <a th:href="@{operation}" type="button" class="btn btn-info">Continue
+                    as guest</a>
+            </div>
+            <div class="right-side col-md-6">
+                <a th:href="@{login}" type="button" class="btn btn-info">Login</a>
+                <a th:href="@{register}" type="button" class="btn btn-info">Sign up</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

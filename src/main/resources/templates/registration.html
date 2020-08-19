@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap Link  -->
+    <!-- Bootstrap Link  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fontawesome.com/icons/github?style=brands" rel="stylesheet">
+    <!-- CSS link  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fontawesome.com/icons/github?style=brands" rel="stylesheet">
+    <!-- CSS link  -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+
+    <script th:src="@{/js/script.js}"></script>
+    <title>login</title>
+</head>
+
+<body>
+<h1><span>Registration</span></h1>
+<div class="basic container">
+
+
+
+
+    <div class="row">
+        <div class="col">
+            <form th:object="${user}" method="post">
+
+                <p class="error-message"
+                   th:if="${#fields.hasGlobalErrors()}"
+                   th:each="error : ${#fields.errors('global')}"
+                   th:text="${error}">Validation error</p>
+
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('name')}? 'has-error':''"
+                >
+                    <input type="text" class="form-control" id="name" aria-describedby="emailHelp"
+                           placeholder="Name" name="name" th:field="*{name}">
+                </div>
+                <p class="error-message" style="color: red"
+                   th:each="error: ${#fields.errors('name')}"
+                   th:text="${error}">Validation error</p>
+
+
+                <div class="form-group"
+                     th:classappend="${#fields.hasErrors('email')}? 'has-error':''"
+                >
+                    <input type="email" class="form-control" id="email" placeholder="Email"
+                           name="email" th:field="*{email}">
+                </div>
+                <p class="error-message" style="color: #ff0000"
+                   th:each="error: ${#fields.errors('email')}"
+                   th:text="${error}">Validation error</p>
+
+                <label class="form-group"
+                       th:classappend="${#fields.hasErrors('password')}? 'has-error':''">
+
+                    <input type="password" class="form-control" th:onkeypress="checkPass()" id="password" placeholder="Password" name="password"
+                           th:onkeyup='check()' th:onChange="onChange()" th:field="*{password}" required>
+
+                    <p class="error-message" style="color: red"
+                       th:each="error: ${#fields.errors('password')}"
+                       th:text="${error}">Validation error</p>
+                </label>
+                <label class="form-group">
+
+                    <input type="password" class="form-control" th:onkeypress="checkPass()" id="confirm_password" placeholder="Confirm Password"
+                           th:onkeyup='check()' th:onChange="onChange()" name="confirm_password" required>
+                </label>
+
+
+                <button type="submit" class="btn btn-primary">Sign in</button><br><br>
+                   Already have account?<a href="/login">Login</a>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+</div>
+</body>
+
+</html>
