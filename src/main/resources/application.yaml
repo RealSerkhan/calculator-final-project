@@ -1,7 +1,9 @@
 server:
+  port: ${PORT:5000}
   servlet:
     session:
       tracking-modes: cookie
+
 spring:
   datasource:
     url: ${JDBC_DATABASE_URL:jdbc:mysql://localhost:3306/spring-social?allowPublicKeyRetrieval=true&useSSL=false}
